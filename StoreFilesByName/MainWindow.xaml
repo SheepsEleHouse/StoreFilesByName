@@ -5,8 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StoreFilesByName"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="100" Width="400">
+    <Window.Background>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}"/>
+    </Window.Background>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="folderNameTextBox" Grid.Row="0" Grid.Column="0" Text="{Binding FolderName}" VerticalAlignment="Center" Padding="10,0" Margin="5"></TextBox>
+        <Button x:Name="selectFolderButton" Grid.Row="0" Grid.Column="1" Click="selectFolderButton_Click" Margin="5">Select Folder</Button>
+        <TextBox x:Name="letterLengthTextBox" Grid.Row="1" Grid.Column="0" Text="{Binding Letters}" VerticalAlignment="Center" Padding="10,0" Margin="5"></TextBox>
+        <Button x:Name="storeButton" Grid.Row="1" Grid.Column="1" Margin="5" Click="storeButton_Click">Store</Button>
+
     </Grid>
 </Window>

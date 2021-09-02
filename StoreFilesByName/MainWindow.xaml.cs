@@ -20,9 +20,21 @@ namespace StoreFilesByName
     /// </summary>
     public partial class MainWindow : Window
     {
+        private StoreFilesByNameViewModel vm = new StoreFilesByNameViewModel();
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = vm;
+        }
+
+        private void selectFolderButton_Click(object sender, RoutedEventArgs e)
+        {
+            vm.SelectFolderButtonClickCallback();
+        }
+
+        private void storeButton_Click(object sender, RoutedEventArgs e)
+        {
+            vm.StoreButtonClickCallback();
         }
     }
 }
