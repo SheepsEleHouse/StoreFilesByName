@@ -36,5 +36,29 @@ namespace StoreFilesByName
         {
             vm.StoreButtonClickCallback();
         }
+
+        private void SetComponentsEnable(bool isStoring)
+        {
+            folderNameTextBox.IsEnabled = !isStoring;
+            selectFolderButton.IsEnabled = !isStoring;
+            letterLengthTextBox.IsEnabled = !isStoring;
+            storeButton.IsEnabled = !isStoring;
+            canselButton.IsEnabled = isStoring;
+            if (isStoring)
+            {
+                storeButton.Visibility = Visibility.Hidden;
+                canselButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                storeButton.Visibility = Visibility.Visible;
+                canselButton.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void canselButton_Click(object sender, RoutedEventArgs e)
+        {
+            vm.CancelButtonClickCallback();
+        }
     }
 }
